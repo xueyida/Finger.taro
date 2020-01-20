@@ -2,6 +2,11 @@ import Taro, { Component } from '@tarojs/taro';
 import { View }  from '@tarojs/components';
 import './index.scss';
 
+
+function isFunction(fn) {
+    return Object.prototype.toString.call(fn)=== '[object Function]';
+}
+
 export default class Finger extends Component {
   constructor(props) {
     super(props);
@@ -162,7 +167,7 @@ export default class Finger extends Component {
   }
 
   self_handleTouchEnd(evt) {
-      const { onRightFn } = this.props;
+      const { onRightFn, onLeft } = this.props;
       this.self_emitEvent('onTouchEnd', evt);
       this.end = Date.now();
       this.self_cancelLongTap();
@@ -177,8 +182,11 @@ export default class Finger extends Component {
               (this.y2 && Math.abs(this.y1 - this.y2) > 30)) {
               const direction = this.self_swipeDirection(this.x1, this.x2, this.y1, this.y2);
               evt.direction = direction;
-              if(direction === 'Right'){
+              if(direction === 'Right' && isFunction(onRightFn)){
                 onRightFn();
+              }
+              if(direction === 'Left'&& isFunction(onLeft)){
+                onLeft();
               }
               evt.distance = Math.abs(this.x1 - this.x2);
               this.swipeTimeout = setTimeout(() => {
