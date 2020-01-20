@@ -1,5 +1,6 @@
 import Taro, { Component } from '@tarojs/taro';
-import { View }  from '@tarojs/components';
+import AtComponent from './common/component';
+
 import './index.scss';
 
 
@@ -7,7 +8,7 @@ function isFunction(fn) {
     return Object.prototype.toString.call(fn)=== '[object Function]';
 }
 
-export default class Finger extends Component {
+export default class Finger extends AtComponent {
   constructor(props) {
     super(props);
 
