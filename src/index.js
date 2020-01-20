@@ -1,5 +1,7 @@
-import Taro, { Component } from '@tarojs/taro';
-import AtComponent from './common/component';
+import Taro from '@tarojs/taro';
+import Nerv from "nervjs";
+import { View }  from '@tarojs/components';
+import AtComponent from '../common/component';
 
 import './index.scss';
 
