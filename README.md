@@ -82,6 +82,11 @@ web手势库，基于AlloyFinger的 Taro 库,可以快速帮助你的 web 程序
   - `nervjs`
 
   - `@tarojs/components`
+
+
+## Reference
+
+[AlloyFinger手势库](http://www.alloyteam.com/2016/05/super-small-web-gesture-library-alloyfinger-released/)
  
 
 
